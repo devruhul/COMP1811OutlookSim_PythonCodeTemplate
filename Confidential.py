@@ -25,6 +25,7 @@ class Confidential(Mail):
         """Pretty-print ONLY for confidential emails."""
         return (
             "----- CONFIDENTIAL EMAIL -----\n"
+            f"ID: {self.m_id}\n"
             f"From: {self.frm}\n"
             f"Date: {self.date}\n"
             f"Subject: {self.subject}\n\n"

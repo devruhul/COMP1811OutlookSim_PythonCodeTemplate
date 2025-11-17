@@ -116,31 +116,33 @@ class MailboxAgent:
 # FEATURE 6 (Partners A and B)
     # 
     def add_email(self, frm, to, date, subject, tag, body):
-        """Create a new email object (Mail / Confidential / Personal) with a unique m_id
-        and add it to this MailboxAgent's mailbox. Returns the created Mail object.
-        """
-        # generate a unique numeric id based on existing numeric m_id values
-        existing_nums = []
-        for mail in self._mailbox:
-            try:
-                existing_nums.append(int(mail.m_id))
-            except (ValueError, TypeError):
-                # skip non-numeric ids
-                continue
-        new_num = max(existing_nums) + 1 if existing_nums else 0
-        new_id = str(new_num)
+        """Create a new email object with unique m_id and add it to mailbox."""
 
-        # choose class based on tag
-        tag_l = tag.lower()
-        if tag_l == 'conf':
-            added_email = Confidential(new_id, frm, to, date, subject, tag, body)
-        elif tag_l == 'prsnl':
-            added_email = Personal(new_id, frm, to, date, subject, tag, body)
+        # 1️⃣ Generate unique numeric m_id
+        if len(self._mailbox) == 0:
+            new_id = "0"
         else:
-            added_email = Mail(new_id, frm, to, date, subject, tag, body)
+            # convert all m_id to int and get max
+            ids = [int(mail.m_id) for mail in self._mailbox]
+            new_id = str(max(ids) + 1)
 
-        # append to this instance's mailbox
-        self._mailbox.append(added_email)
+        # 2️⃣ Create correct email type depending on tag
+        tag_lower = tag.lower()
 
-        # return the created object (caller can print or ignore)
-        return added_email
+        if tag_lower == "conf":
+            # Confidential email object
+            new_email = Confidential(new_id, frm, to, date, subject, tag, body)
+
+        elif tag_lower == "prsnl":
+            # Personal email object
+            new_email = Personal(new_id, frm, to, date, subject, tag, body)
+
+        else:
+            # General Mail email object
+            new_email = Mail(new_id, frm, to, date, subject, tag, body)
+
+        # 3️⃣ Append to mailbox
+        self._mailbox.append(new_email)
+
+        return new_email
+

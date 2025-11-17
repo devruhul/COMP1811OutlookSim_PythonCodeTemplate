@@ -16,7 +16,7 @@ class Personal(Mail):
 
     def __init__(self, m_id, frm, to, date, subject, tag, body):
         super().__init__(m_id, frm, to, date, subject, tag, body)
-        # If you need any personal-specific behaviour, add here
+        
 
     # FB.5.b
     def add_stats(self):
