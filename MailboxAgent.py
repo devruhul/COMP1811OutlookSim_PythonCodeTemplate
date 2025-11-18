@@ -117,7 +117,7 @@ class MailboxAgent:
     def add_email(self, frm, to, date, subject, tag, body):
         """Create a new email object with unique m_id and add it to mailbox."""
 
-        # 1️⃣ Generate unique numeric m_id
+        #  Generate unique numeric m_id
         if len(self._mailbox) == 0:
             m_id = "0"
         else:
@@ -125,7 +125,7 @@ class MailboxAgent:
             ids = [int(mail.m_id) for mail in self._mailbox]
             m_id = str(max(ids) + 1)
 
-        # 2️⃣ Create correct email type depending on tag
+        # Create correct email type depending on tag
         tag_lower = tag.lower()
 
         if tag_lower == "conf":
@@ -140,7 +140,7 @@ class MailboxAgent:
             # General Mail email object
             new_email = Mail(m_id, frm, to, date, subject, tag, body)
 
-        # 3️⃣ Append to mailbox
+        # Append to mailbox
         self._mailbox.append(new_email)
 
         return new_email
