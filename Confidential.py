@@ -25,14 +25,12 @@ class Confidential(Mail):
     def show_email(self):
         """Pretty-print ONLY for confidential emails."""
         return (
-            "----- CONFIDENTIAL EMAIL -----\n"
-            f"ID: {self.m_id}\n"
+            "----- CONFIDENTIAL -----\n"
             f"From: {self.frm}\n"
             f"Date: {self.date}\n"
-            f"Subject: {self.subject}\n\n"
+            f"Subject: {self.subject}\n"
             "Encrypted Body:\n"
             f"{self.body}\n"
-            f"Read: {'Yes' if self._read else 'No'}\n"
             f"Flagged: " + ('Yes' if self._flag else 'No') + "\n"
             "------------------------------"
         )

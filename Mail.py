@@ -28,17 +28,7 @@ class Mail:
 
     # Format should be done from pretty print.
     def __str__(self):
-        return (
-            f"ID: {self.m_id}\n"
-            f"From: {self.frm}\n"
-            f"To: {self.to}\n"
-            f"Date: {self.date}\n"
-            f"Subject: {self.subject}\n"
-            f"Tag: {self.tag}\n"
-            f"Read: {self.read}\n"
-            f"Flagged: {self.flag}\n"
-        )
-
+        return (self.show_email()) #calling show_email method to get pretty-print format of email
 
     @property
     def m_id(self):
@@ -96,7 +86,7 @@ class Mail:
         #  all the emails details in a pretty format
         pretty_format = (
             "-------------------------\n"
-            f"ID: {self.m_id}\n"
+            f"m_id: {self.m_id}\n"
             f"From: {self.frm}\n"
             f"To: {self.to}\n"
             f"Date: {self.date}\n"

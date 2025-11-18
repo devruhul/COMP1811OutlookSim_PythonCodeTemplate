@@ -119,26 +119,26 @@ class MailboxAgent:
 
         # 1️⃣ Generate unique numeric m_id
         if len(self._mailbox) == 0:
-            new_id = "0"
+            m_id = "0"
         else:
             # convert all m_id to int and get max
             ids = [int(mail.m_id) for mail in self._mailbox]
-            new_id = str(max(ids) + 1)
+            m_id = str(max(ids) + 1)
 
         # 2️⃣ Create correct email type depending on tag
         tag_lower = tag.lower()
 
         if tag_lower == "conf":
             # Confidential email object
-            new_email = Confidential(new_id, frm, to, date, subject, tag, body)
+            new_email = Confidential(m_id, frm, to, date, subject, tag, body)
 
         elif tag_lower == "prsnl":
             # Personal email object
-            new_email = Personal(new_id, frm, to, date, subject, tag, body)
+            new_email = Personal(m_id, frm, to, date, subject, tag, body)
 
         else:
             # General Mail email object
-            new_email = Mail(new_id, frm, to, date, subject, tag, body)
+            new_email = Mail(m_id, frm, to, date, subject, tag, body)
 
         # 3️⃣ Append to mailbox
         self._mailbox.append(new_email)
