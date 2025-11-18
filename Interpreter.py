@@ -5,7 +5,7 @@
 ###            automatically in response to user commands via an interactive command-line     ###
 ###            interface. The interpreter represents the user interacting with their mailbox. ###
 ### Partner A:                                                                                ###
-###            <Full name as appears on Moodle>, SID<student ID>                              ###
+###         Ruhul Amin, SID 001507871                                                         ###
 ### Partner B:                                                                                ###
 ###            <Full name as appears on Moodle>, SID<student ID>                              ###
 #################################################################################################
@@ -34,7 +34,7 @@ def gen_emails():
     """ generates list of email strings
         :rtype: list """
     msgs, msg_id = [], 0
-    for i in range(41):     # sent 40 email
+    for i in range(41):     # sent 40 email increased 1
         msg = ''
         for j in range(30): # to 30 destinations each
             msg += f"ID:{str(msg_id)}"+"\n"
@@ -95,7 +95,7 @@ def loop():
                 date = args[2]
                 subject = args[3]
                 tag = args[4]
-                body = ' '.join(args[5:])
+                body = ' '.join(args[5:]) #from 5th index to end of list
                 if body.startswith('%%'):
                     body = body[2:]
 
@@ -103,7 +103,7 @@ def loop():
                 print("Email added to mailbox.")
                 
             case 'del':            
-                # getting the email ID from args list and changing the tag to bin
+                # getting the email ID from args list to delete email
                 deleteEmailID = args[0]
                 print(mba.del_email(deleteEmailID))
             case 'flt':
@@ -116,12 +116,11 @@ def loop():
                 # fnd 12/3/2025
                 pass
             case 'get' :                
-                # retrieve and display email mail object given email ID
+                #  displaying email with given ID
                 getEmailID = args[0]
                 print(mba.get_email(getEmailID))
             case 'lst' :                
-                # display entire mailbox
-                # list all the emails
+                # displaying entire mailbox
                 email = mba.show_emails()
                 print(email)
             case 'mrkr':

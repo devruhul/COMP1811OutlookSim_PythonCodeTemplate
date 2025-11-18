@@ -20,5 +20,4 @@ class Personal(Mail):
 
     # FB.5.b
     def add_stats(self):
-        """Optional: implement if needed by coursework spec"""
         pass

@@ -39,7 +39,7 @@ class MailboxAgent:
     # FA.1
     # 
     def get_email(self, m_id):
-    #    get all given email id from mailbox
+    #    get given email id from mailbox
         for mail in self._mailbox:
             if mail.m_id == m_id:
                 mail._read = True
@@ -47,9 +47,8 @@ class MailboxAgent:
         return "Email not found."
 
     # FA.3
-    # 
-    def del_email(self, m_id):
     # A.3 Delete email with given ID and change current tag to bin then display that email
+    def del_email(self, m_id):
         for mail in self._mailbox:
             if mail.m_id == m_id:
                 mail._tag = 'bin'   # changing the tag to bin

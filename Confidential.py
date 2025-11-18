@@ -18,9 +18,10 @@ class Confidential(Mail):
     def __init__(self, m_id, frm, to, date, subject, tag, body):
         # do not change the attributes defined in Mail
         super().__init__(m_id, frm, to, date, subject, tag, body)
-        # encrypt the body immediately (as per spec)
+        # calling encrypt method to encrypt the body of confidential email
         self.encrypt()
         
+        # defining show_email method for pretty-printing confidential emails
     def show_email(self):
         """Pretty-print ONLY for confidential emails."""
         return (
@@ -31,13 +32,12 @@ class Confidential(Mail):
             f"Subject: {self.subject}\n\n"
             "Encrypted Body:\n"
             f"{self.body}\n"
-            # later will add flag and read status
             f"Read: {'Yes' if self._read else 'No'}\n"
             f"Flagged: " + ('Yes' if self._flag else 'No') + "\n"
             "------------------------------"
         )
         
-
+# defining encrypt method for encrypting the body of confidential emails
     def encrypt(self):
         body = self._body
         # Count words; keep empty strings out

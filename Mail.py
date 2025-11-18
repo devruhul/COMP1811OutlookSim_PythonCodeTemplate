@@ -28,7 +28,17 @@ class Mail:
 
     # Format should be done from pretty print.
     def __str__(self):
-        return f"m_id:{self.m_id}\tfrom:{self.frm}\t|{self.to}\t|{self.date}|{self.subject}|{self.tag}|{self.read}|{self.flag}"
+        return (
+            f"ID: {self.m_id}\n"
+            f"From: {self.frm}\n"
+            f"To: {self.to}\n"
+            f"Date: {self.date}\n"
+            f"Subject: {self.subject}\n"
+            f"Tag: {self.tag}\n"
+            f"Read: {self.read}\n"
+            f"Flagged: {self.flag}\n"
+        )
+
 
     @property
     def m_id(self):
