@@ -39,7 +39,7 @@ def gen_emails():
     """generates list of email strings
     :rtype: list"""
     msgs, msg_id = [], 0
-    for i in range(41):  # sent 40 email increased 1
+    for i in range(40):  # sent 40 email increased 1
         msg = ""
         for j in range(30):  # to 30 destinations each
             msg += f"ID:{str(msg_id)}" + "\n"
@@ -120,37 +120,44 @@ def loop():
 
             case "del":
                 # getting the email ID from args list to delete email
-                deleteEmailID = args[0]
-                print(mba.del_email(deleteEmailID))
+                delete_email_id = args[0]
+                print(mba.del_email(delete_email_id))
+
             case "flt":
-                # called filter method from MailboxAgent class to filter emails from given sender
+                # calling filter method from MailboxAgent class to filter emails from given sender
                 sender = args[0]
                 print(mba.filter(sender))
 
             case "fnd":
-                # example command prompt:
-                # fnd 12/3/2025
-                pass
+                # finding emails from given date
+                date = args[0]
+                print(mba.find(date))
+
             case "get":
                 #  displaying email with given ID
-                getEmailID = args[0]
-                print(mba.get_email(getEmailID))
+                get_email_id = args[0]
+                print(mba.get_email(get_email_id))
+
             case "lst":
                 # displaying entire mailbox
                 email = mba.show_emails()
                 print(email)
+
             case "mrkr":
-                # example command prompt:
-                # mrkr 10
-                pass
+                #    marking email with given ID as Read then display that email
+                mark_read_email_id = args[0]
+                print(mba.mark(mark_read_email_id, "read"))
+
             case "mrkf":
-                # example command prompt:
-                # mrkf 10
-                pass
-            case "mv":  # move email with given ID to folder in given tag
-                # example command prompt:
-                # mv 10 conf
-                pass
+                #    marking email with given ID as Flagged then display that email
+                mark_flag_email_id = args[0]
+                print(mba.mark(mark_flag_email_id, "flag"))
+
+            case "mv":
+                # moving email with given ID to folder in given tag then display that email
+                move_email_id = args[0]
+                tag = args[1]
+                print(mba.mv_email(move_email_id, tag))
 
         line = input("mba > ")
         words = line.split(" ")

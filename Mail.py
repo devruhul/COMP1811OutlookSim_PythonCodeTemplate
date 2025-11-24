@@ -13,8 +13,6 @@
 
 
 class Mail:
-    """ """
-
     # DO NOT CHANGE CLASS OR METHOD NAMES
     def __init__(self, m_id, frm, to, date, subject, tag, body):
         self._m_id = m_id
@@ -85,9 +83,8 @@ class Mail:
 
     # FEATURES A (Partner A)
     # FA.2
-    #
+    # all the emails details in a pretty format
     def show_email(self):
-        #  all the emails details in a pretty format
         pretty_format = (
             "-------------------------\n"
             f"m_id: {self.m_id}\n"
