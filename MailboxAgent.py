@@ -14,7 +14,6 @@
 from Confidential import *
 from Personal import *
 
-
 class MailboxAgent:
     """<This is the documentation for MailboxAgent. Complete the docstring for this class."""
 

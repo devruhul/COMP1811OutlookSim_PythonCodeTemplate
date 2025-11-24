@@ -15,7 +15,6 @@ from Mail import *
 # FA.5.a
 # defining Confidential class that inherits from Mail class
 class Confidential(Mail):
-
     def __init__(self, m_id, frm, to, date, subject, tag, body):
         # do not change the attributes defined in Mail
         super().__init__(m_id, frm, to, date, subject, tag, body)
@@ -23,7 +22,6 @@ class Confidential(Mail):
         self.encrypt()
 
     # FA.5.b
-
     # defining encrypt method for encrypting the body of confidential emails
     def encrypt(self):
         body = self._body

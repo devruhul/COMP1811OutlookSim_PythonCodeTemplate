@@ -16,7 +16,6 @@
 from MailboxAgent import *
 import random, string
 
-
 # gen_bdy Generates random text for the email body
 # DO NOT MODIFY
 def gen_bdy():
@@ -55,7 +54,6 @@ def gen_emails():
         msg_id += 1
     return msgs
 
-
 # DO NOT MODIFY
 def display_command_help():  # DO NOT MODIFY (used in loop function)
     """Displays command line help"""
@@ -75,7 +73,6 @@ def display_command_help():  # DO NOT MODIFY (used in loop function)
     # add email1223@gre.ac.uk email723@gre.ac.uk 29/5/2025 subject99 conf %%Body99911. Isfeo afwco sxzmp.
     # add email142@gre.ac.uk email788@gre.ac.uk 29/5/2025 subject88 prsnl %%Body11445. Isfffffeo afffwco sxzmp.
     # add email116@gre.ac.uk email142@gre.ac.uk 29/5/2025 subject36 tag1 %%Body:Body68. Wods vmm tskgdrxzrk.
-
 
 # loop repeatedly asks for command input until 'end' is entered
 # DO NOT MODIFY FUNCTION NAME
@@ -162,7 +159,6 @@ def loop():
         line = input("mba > ")
         words = line.split(" ")
         command, args = words[0], words[1:]
-
 
 if __name__ == "__main__":
     loop()

@@ -11,7 +11,6 @@
 # DO NOT CHANGE CLASS OR METHOD NAMES
 # replace "pass" with your own code as specified in the CW spec.
 
-
 class Mail:
     # DO NOT CHANGE CLASS OR METHOD NAMES
     def __init__(self, m_id, frm, to, date, subject, tag, body):

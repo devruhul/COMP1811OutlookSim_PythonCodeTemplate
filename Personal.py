@@ -13,7 +13,6 @@
 # FB.5.a
 from Mail import Mail
 
-
 class Personal(Mail):
     def __init__(self, m_id, frm, to, date, subject, tag, body):
         super().__init__(m_id, frm, to, date, subject, tag, body)
@@ -34,7 +33,6 @@ class Personal(Mail):
     # FB.5.b
     # defining add_stats method for adding statistics to personal email body
     def add_stats(self, body):
-
         uid = self.frm.split("@")[0]
         body = body.replace("Body", uid)
         words = body.split()
